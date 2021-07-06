@@ -1,0 +1,359 @@
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Banner Section CSS */
+  .banner {
+    height: auto !important;
+  }
+
+  .banner .row {
+    flex-direction: column-reverse !important;
+  }
+
+  .banner .col-md-8 {
+    max-width: 100%;
+    justify-content: center !important;
+  }
+
+  .banner .col-md-4 .right {
+    display: block;
+    text-align: center;
+  } 
+
+  .banner .col-md-4 {
+    max-width: 100% !important;
+  }
+
+  .banner .col-md-4 .right {
+    height: auto !important;
+    display: block !important;
+  }
+
+  .banner .col-md-4 .right {
+    padding: 0 150px !important;
+  }
+
+  
+
+  
+
+  
+  .banner .col-md-8 .left {
+    height: auto !important;
+    display: block;
+    padding: 30px 0 !important;
+  }
+
+  .banner .col-md-8 .left h1,
+  p {
+    text-align: center;
+  }
+
+  .call-to-action {
+    text-align: center;
+  }
+
+  /* Video Section CSS */
+  .video-section {
+    padding: 20px 0 !important;
+    text-align: center !important;
+  }
+
+  .video-section .col-md-6 h1 {
+    padding-top: 64px !important;
+    font-size: 30px !important;
+  }
+
+  .video-section .video-part {
+    margin: 64px 0 !important;
+  }
+
+  /* Title Section CSS */
+
+  .title {
+    padding: 40px 0 !important;
+  }
+
+  .title .col-md-12 .title-desc h2 {
+    
+    font-size: 48px !important;
+  }
+
+  /* Video-2 Section CSS */
+  .video-section-2 {
+    padding: 20px 0 !important;
+  }
+
+  .video-section-2 .col-md-6 h1 {
+    padding-top: 75px !important;
+    font-size: 30px !important;
+  }
+
+  .video-section-2 .col-md-6 p {
+    text-align: right;
+  }
+
+  .video-section-2 .col-md-6 .btn-primary {
+    margin-bottom: 20px !important;
+  }
+
+  .video-section-2 .video-part {
+    margin: 80px 0;
+  }
+
+  /* Title-2 Section CSS */
+
+  .title-2 {
+    padding: 30px 0 !important;
+  }
+
+  .title-2 .col-md-12 .title-desc h2 {
+    font-size: 48px !important;
+  }
+
+  .title-2 .col-md-4 {
+    margin: 0 !important;
+  }
+
+  /* Vet Team CSS */
+
+  .vet-team {
+    padding: 35px 0 !important;
+  }
+
+  .vet-team .col-md-12 h2 {
+    font-size: 48px !important;
+  }
+
+  .vet-team .col-md-4 {
+    margin-bottom: 20px;
+  }
+
+  /* Counts Section CSS */
+
+  .counts {
+    padding: 40px 0 !important;
+  }
+
+  /*  Recent Post */
+
+  .recent-post {
+    padding: 40px 0 !important;
+  }
+  .recent-post .col-md-4 {
+    margin: 20px 0;
+  }
+
+  .recent-post .card-title {
+    text-align: center;
+  }
+
+  /* Footer */
+
+  footer form {
+    margin-left: 100px !important;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  /* Banner Section CSS */
+  .banner {
+    height: 1200px !important;
+  }
+
+  .banner .col-md-8 {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+
+  .banner .col-md-8 .left h1 {
+    font-size: 43px !important;
+    text-align: center !important;
+  }
+
+  .banner .col-md-8 .left
+  p {
+    text-align: center !important;
+  }
+
+  .call-to-action {
+    text-align: center;
+  }
+
+  /* Video Section CSS */
+
+  .video-section {
+    padding: 50px 0 !important;
+  }
+
+  .video-section .col-md-6 {
+    text-align: center !important;
+    margin-bottom: 40px;
+  }
+
+  .video-section .col-md-6 h1 {
+    font-size: 35px !important;
+  }
+
+  .video-section .col-md-6 p {
+    text-align: center !important;
+  }
+
+  .video-section .video-part {
+    margin: 0 40px !important;
+  }
+
+  /*  Title Section CSS */
+
+  .title {
+    padding: 40px 0 !important;
+    text-align: center !important;
+  }
+
+  .title .col-md-12 {
+    max-width: 100% !important;
+  }
+
+  .title .col-md-12 .title-desc h2 {
+    font-size: 46px !important;
+  }
+
+  .title .col-md-12 h2,
+  p {
+    font-size: 18px !important;
+    text-align: center !important;
+  }
+
+   .title .col-md-12 .title-desc p{
+     text-align: center !important;
+   }
+
+  .title .col-md-4{
+    max-width: 100% !important;
+  }
+
+  .title .col-md-4 p{
+    text-align: center !important;
+  }
+
+  /* Video Section-2 CSS */
+
+  .video-section-2 {
+    padding: 40px 0 !important;
+    text-align: center !important;
+  }
+
+  .video-section-2 .col-md-6 {
+    text-align: center !important;
+  }
+
+  .video-section-2 .col-md-6 .btn-primary {
+    margin-bottom: 20px;
+  }
+
+  .video-section-2 .col-md-6 p{
+    text-align: center !important;
+  }
+
+  .video-section-2 .video-part {
+    margin: 20px 42px;
+  }
+
+
+  /* Title-2 Section CSS  */
+
+  .title-2{
+   padding: 40px 0 !important;
+  }
+
+  .title-2 .col-md-12 .title-desc h2 {
+    text-align: center !important;
+    font-size: 46px !important;
+  }
+
+  .title-2 .col-md-12 p{
+    text-align: center !important;
+    font-size: 15px !important;
+    }
+
+  .title-2 .col-md-4 {
+    margin: 20px 20px;
+  }
+
+  /* Vet Team  */
+
+  .vet-team {
+    padding: 40px 0 !important;
+    text-align: center !important;
+  }
+
+  .vet-team .col-md-12 h2 {
+    font-size: 44px !important;
+    text-align: center !important;
+  }
+
+  .vet-team .col-md-12 p{
+    text-align: center !important;
+    font-size: 15px !important;
+  }
+
+  .vet-team .col-md-4 {
+    margin-bottom: 20px;
+  }
+
+  /* Counts Section CSS */
+
+  .counts .col-md-4 {
+    margin-bottom: 39px;
+  }
+
+  /* Recent Post Section CSS */
+
+  .recent-post{
+    padding: 40px 0 !important;
+  }
+
+  .recent-post .col-md-12 p {
+    text-align: center !important;
+  }
+
+  .recent-post .col-md-4 {
+    margin: 20px 47px;
+  }
+
+  .recent-post .card-title {
+    text-align: center;
+  }
+
+  /* Footer Section CSS */
+
+  footer{
+     padding: 40px 0 !important;
+  }
+
+  footer .col-md-6 h3 {
+    text-align: left;
+  }
+
+  footer .col-md-6 p {
+    text-align: left;
+  }
+
+  footer form {
+    margin-left:  0px !important;
+  }
+
+  footer .col-md-6 h3,
+  p {
+    text-align: left !important;
+  }
+
+  footer .social-icons ul {
+    text-align: left !important;
+  }
+}

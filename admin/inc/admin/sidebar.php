@@ -20,23 +20,16 @@
      </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
      </i>Book Lists </a>
     <ul id="bookList" class="collapse unstyled">
-     <li><a href="#"><i class="icon-plus"></i>Add New Book </a></li>
-     <li><a href="other-user-profile.html"><i class="icon-edit"></i>Manage All Books </a></li>
+     <li><a href="book.php?do=Add"><i class="icon-plus"></i>Add New Book </a></li>
+     <li><a href="book.php?do=Manage"><i class="icon-edit"></i>Manage All Books </a></li>
     </ul>
    </li>
    <!-- Book Inventory Menu Ends Here -->
 
    <!-- Member Menu Starts Here -->
-   <li><a class="collapsed" data-toggle="collapse" href="#memberList"><i class="icon-user">
-     </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
-     </i>Members </a>
-    <ul id="memberList" class="collapse unstyled">
-     <li><a href="other-login.html"><i class="icon-plus"></i>Add New Member </a></li>
-     <li><a href="other-user-profile.html"><i class="icon-edit"></i>Manage All Members </a></li>
-    </ul>
-   </li>
+   <li><a href="allmembers.php"><i class="icon-user"></i>View All Members </a></li>
    <!-- Member Menu Ends Here-->
-   <li><a href="#"><i class="icon-list-ul"></i> View Book Inventory </a></li>
+   <li><a href="bookinventory.php"><i class="icon-th-list"></i> View Book Inventory </a></li>
 
   </ul>
   <!--/.widget-nav-->
@@ -44,27 +37,10 @@
 
   <ul class="widget widget-menu unstyled">
 
-   <!-- Book Issue Menu Starts Here -->
-   <li><a class="collapsed" data-toggle="collapse" href="#toggleTrans"><i class="icon-hand-right">
-     </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
-     </i>Book Issue </a>
-    <ul id="toggleTrans" class="collapse unstyled">
-     <li><a href="other-user-profile.html"><i class="icon-plus"></i>Issue Books </a></li>
-     <li><a href="other-user-listing.html"><i class="icon-edit"></i>Manage All Issued Books </a></li>
-    </ul>
-   </li>
-   <!-- Book issue Menu ends Here -->
+   <!-- Process Return Books Starts here -->
+   <li><a href="return.php"><i class="icon-random"></i> Process Return </a></li>
+   <!-- Process Return Books ends here -->
 
-   <li><a href="charts.html"><i class="menu-icon icon-bar-chart"></i>Reports </a></li>
-   <li><a class="collapsed" data-toggle="collapse" href="#togglePages"><i class="menu-icon icon-cog">
-     </i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
-     </i>More Pages </a>
-    <ul id="togglePages" class="collapse unstyled">
-     <li><a href="other-login.html"><i class="icon-inbox"></i>Login </a></li>
-     <li><a href="other-user-profile.html"><i class="icon-inbox"></i>Profile </a></li>
-     <li><a href="other-user-listing.html"><i class="icon-inbox"></i>All Users </a></li>
-    </ul>
-   </li>
    <li><a href="logout.php"><i class="menu-icon icon-signout"></i>Logout </a></li>
   </ul>
   <!--/.widget-nav-->

@@ -1,0 +1,370 @@
+/*google fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Global CSS */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+input,
+button {
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Header Section CSS */
+
+header {
+  width: 100%;
+  background: #065740 !important;
+}
+
+.sticky {
+  position: fixed;
+  z-index: 9999;
+  background: #065740 !important;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.navbar-light .navbar-nav .active>.nav-link {
+  color: #fff !important;
+}
+
+.nav-item {
+  margin: 0 10px;
+}
+
+.input-group-text {
+  background-color: #0A0A0A !important;
+  border-color: #0A0A0A !important;
+  color: white !important;
+  border-radius: 0;
+}
+
+header .form-control {
+  background: #FFFFFF !important;
+  border-color: #0A0A0A !important;
+  border-radius: 0 !important;
+}
+
+header .input-group {
+  margin-top: 12px;
+  box-shadow: 3px 4px 8px 0px rgba(0, 0, 0, 0.3);
+}
+
+header .input-group input::placeholder {
+  color: #065740;
+}
+
+
+.blog-bg {
+  background: url('https://www.rplmn.org/home/showpublishedimage/18447/637571081552370000');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  padding: 175px 0 100px;
+}
+
+.background-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  color: #fff;
+  position: relative;
+  z-index: 0;
+}
+
+.background-img:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: rgba(6, 19, 3, 0.281);
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.page-breadcrumb-item {
+  text-align: center;
+}
+
+.page-breadcrumb-item ol li {
+  display: inline;
+  text-align: center;
+  font-weight: 400;
+}
+
+.page-breadcrumb-item ol li a {
+  color: #ffc400;
+  font-weight: 400;
+}
+
+.page-breadcrumb-item .active {
+  color: #fff;
+  font-weight: 400;
+}
+
+.search-box {
+  margin: 30px auto;
+  text-align: center;
+  background: rgba(9, 0, 0, 0.733);
+}
+
+.search-box h2 {
+  margin-top: 30px;
+  font-size: 28px;
+}
+.search-box p {
+  margin-bottom: 22px;
+  font-size: 22px;
+}
+
+.search-box form {
+  margin-bottom: 30px;
+}
+
+.search-box .btn-light {
+  border: 1px solid #ced4da;
+}
+
+/* Banner section css */
+
+.recent {
+  padding: 80px 0;
+  width: 100%;
+}
+
+
+.recent .col-md-12 {
+  text-align: center;
+  margin:20px 0;
+}
+
+.recent .col-md-12 h1{
+  color:#055740;
+  font-size: 26px;
+}
+
+
+.recent .col-md-3 {
+   margin-bottom: 20px;
+}
+
+
+.recent .card-title {
+  font-weight: 600;
+  
+}
+
+.card-body .date {
+  color: #44cfd7;
+  font-weight: 500;
+}
+
+.card-body p {
+  font-weight: 400;
+}
+
+.card-body .link {
+  font-size: 17px;
+  color: #055740;
+  font-weight: bold;
+ 
+}
+
+.card:hover {
+  box-shadow: 5px 10px 10px rgb(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  min-width: 100%;
+  width: auto;
+  height: 250px;
+}
+
+
+/* book-details css */
+.book-details {
+  width: 100%;
+  padding: 120px 0;
+}
+
+.book-details .col-md-6 {
+  margin-bottom:100px;
+}
+
+
+.adtocart {
+  background: #fc5959;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  text-align: center;
+  border: 3px solid #fff;
+  left: 45%;
+  bottom: -25px;
+  position: absolute;
+}
+
+.adtocart i {
+  color: #fff;
+  font-size: 25px;
+  line-height: 42px;
+}
+
+.book-details-img {
+  margin-left: 250px;
+}
+
+
+.book-details-img img {
+  width: 300px;
+  height:400px;
+}
+
+.book-details-title {
+  font-size: 25px;
+  margin-top: 0;
+}
+
+.book-desc {
+  margin: 10px 0;
+}
+
+.book_meta {
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+  margin: 13px 0;
+}
+
+.book_meta span {
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+/* Register */
+
+.register {
+  width: 100%;
+  padding: 120px 0;
+}
+
+.register .card-header{
+  background:#055740;
+  color: #fff;
+}
+
+.register h2{
+font-size: 20px;
+font-weight: 700;
+text-align:center;
+}
+
+.register h2 span {
+  font-size: 20px;
+  color:#FFC108;
+}
+
+    
+
+/* Footer section */
+
+footer {
+  width: 100%;
+  padding: 100px 0;
+  background: #0A0A0A !important;
+  
+}
+
+footer .col-md-3 h4 {
+  color: white;
+  font-weight: 600;
+}
+
+footer .col-md-3 ul li {
+  list-style: none;
+}
+
+footer .col-md-3 ul li a {
+  color: white;
+  font-weight: 400;
+}
+
+footer .col-md-6 h3 {
+  color: white;
+  font-weight: 700;
+  text-align: right;
+}
+
+footer .col-md-6 p {
+  color: white;
+  font-weight: 400;
+  text-align: right;
+}
+
+footer form {
+  margin-left: 265px;
+}
+
+footer .input-group-text {
+  background-color: white !important;
+  border-color: #0A0A0A !important;
+  color: #0A0A0A !important;
+  border-radius: 0;
+}
+
+footer .form-control {
+  background: white !important;
+  border-color: #0A0A0A !important;
+  border-radius: 0 !important;
+  padding: 22px;
+}
+
+footer .social-icons ul {
+  text-align: right;
+}
+
+footer .social-icons ul li {
+  display: inline-block;
+  margin-left: 15px;
+  background: #ffffff;
+  color: #000;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  text-align: center;
+}
+

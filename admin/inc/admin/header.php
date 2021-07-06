@@ -2,8 +2,10 @@
 ob_start();
 session_start();
 include 'inc/db.php';
-if (empty($_SESSION['email']) && empty($_SESSION['member_id'])){
+if (empty($_SESSION['email']) && empty($_SESSION['member_id']) && $_SESSION['userole'] !=2){
  header('Location:index.php');
+} else if (!empty($_SESSION['email']) && !empty($_SESSION['member_id']) && $_SESSION['userole'] ==1){ 
+  header('Location:../index.php');
 }
 ?>
 
@@ -24,6 +26,9 @@ if (empty($_SESSION['email']) && empty($_SESSION['member_id'])){
   <link type="text/css" href="./images/icons/css/font-awesome.css" rel="stylesheet">
   <link rel="stylesheet"
    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet"
+   type="text/css" />
 
   <link rel="stylesheet"
    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"

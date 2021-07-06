@@ -13,13 +13,13 @@ include 'inc/admin/header.php';
     <div class="content">
      <?php
 $do = isset($_GET['do']) ? $_GET['do'] : 'Manage';
-// Manage all categories. Display all Categories
+// Manage all books. Display all books
 if ($do == "Manage")
 { ?>
-     <!-- Book Reservation -->
+     <!-- Manage All Books -->
      <div class="module">
       <div class="module-head">
-       <h3>Manage All Book Categories
+       <h3>Manage All Book List
        </h3>
       </div>
       <div class="module-body table">
@@ -29,11 +29,11 @@ if ($do == "Manage")
          <tr>
           <th>Id
           </th>
-          <th>Category Name
+          <th>Image
           </th>
-          <th>Category Type
+          <th>ISBN
           </th>
-          <th>Status
+          <th>Book Title
           </th>
           <th>Action
           </th>
@@ -41,58 +41,62 @@ if ($do == "Manage")
         </thead>
         <tbody>
          <?php
-    $query = "SELECT * FROM book_cat where parent_id=0 order by cat_name ASC";
+    $query = "SELECT * FROM book_info order by book_title ASC";
     $allcat = mysqli_query($dbc, $query);
     $i = 0;
-    while ($row = mysqli_fetch_assoc($allcat))
-    {
-        $cat_id = $row['cat_id'];
-        $cat_name = $row['cat_name'];
-        $parent_id = $row['parent_id'];
-        $status = $row['status'];
+    while ($row = mysqli_fetch_assoc($allcat)) {
+        $book_id      = $row['book_id'];
+        $ISBN         = $row['ISBN'];
+        $book_title	  = $row['book_title'];
+        $book_desc    = $row['book_desc'];
+        $author       = $row['author'];
+        $publisher    = $row['publisher'];
+        $image	       = $row['image'];
+        $pub_date     = $row['pub_date'];
+        $quantity     = $row['quantity'];
         $i++; ?>
          <tr>
           <td>
            <?php echo $i; ?>
           </td>
           <td>
-           <?php echo $cat_name; ?>
-          </td>
-          <td>
+           <?php if(!empty($image)){ ?>
+
+           <img src="../assets/img/book/<?php echo $image; ?>" alt="<?php echo $image;?>" class="img-fluid" width="40">
+
            <?php
-        echo '<span class="badge badge-success">Primary</span>';
-?>
-          </td>
-          <td>
+            } else { 
+           ?>
+           <img src="../assets/img/member/boxed-bg.png" class="img-fluid" width="40">
            <?php
-        if ($status == 1)
-        {
-            echo '<span class="badge badge-warning">Active</span>';
-        }
-        else
-        {
-            echo '<span class="badge badge-danger">Inactive</span>';
-        }
-?>
+           }
+           ?>
           </td>
           <td>
-           <a href="category.php?do=Edit&c_id=<?php echo $cat_id; ?>" data-toggle="tooltip" title="Edit">
+           <?php echo $ISBN; ?>
+          </td>
+
+          <td>
+           <?php echo $book_title; ?>
+          </td>
+          <td>
+           <a href="category.php?do=Edit&b_id=<?php echo $cat_id; ?>" data-toggle="tooltip" title="Edit">
             <i class="icon-edit">
             </i>
            </a>
-           <a href="" data-toggle="modal" data-target="#deleteCategory<?php echo $cat_id; ?>" title="Delete">
+           <a href="" data-toggle="modal" data-target="#deleteBook<?php echo $cat_id; ?>" title="Delete">
             <i class="icon-trash" style="color:red;">
             </i>
            </a>
           </td>
-          <div class="modal fade" id="deleteCategory<?php echo $cat_id; ?>" tabindex="-1"
+          <div class="modal fade" id="deleteBook<?php echo $book_id; ?>" tabindex="-1"
            aria-labelledby="exampleModalLabel" aria-hidden="true">
            <div class="modal-dialog">
             <div class="modal-content">
              <div class="modal-header">
               <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete
                <mark>
-                <?php echo $cat_name; ?>
+                <?php echo $book_title; ?>
                </mark> ?
               </h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -101,8 +105,8 @@ if ($do == "Manage")
               </button>
              </div>
              <div class="modal-body">
-              <form action="category.php?do=Delete&cat_id=<?php echo $cat_id; ?>" method="POST">
-               <input name="deleteCategory" type="submit" class="btn btn-danger" value="Confirm">
+              <form action="book.php?do=Delete&book_id=<?php echo $book_id; ?>" method="POST">
+               <input name="deleteBook" type="submit" class="btn btn-danger" value="Confirm">
                <a type="button" class="btn btn-success" data-dismiss="modal">Cancel
                </a>
               </form>
@@ -110,91 +114,24 @@ if ($do == "Manage")
             </div>
            </div>
           </div>
-          <?php
-        $childCatQuery = "SELECT * FROM book_cat WHERE parent_id='$cat_id' order by cat_name ASC";
-        $childCat = mysqli_query($dbc, $childCatQuery);
-        while ($row = mysqli_fetch_assoc($childCat))
-        {
-            $child_cat_id = $row['cat_id'];
-            $cat_name = $row['cat_name'];
-            $cat_desc = $row['cat_desc'];
-            $parent_id = $row['parent_id'];
-            $status = $row['status'];
-            $i++; ?>
-         <tr>
-          <td scope="row">
-           <?php echo $i; ?>
-          </td>
-          <td>--
-           <?php echo $cat_name; ?>
-          </td>
-          <td>
-           <?php
-            echo '<span class="badge badge-dark">Child</span>'; ?>
-          </td>
-          <td>
-           <?php
-            if ($status == 1)
-            {
-                echo '<span class="badge badge-warning">Active</span>';
-            }
-            else
-            {
-                echo '<span class="badge badge-danger">Inactive</span>';
-            } ?>
-          </td>
-          <td>
-           <a href="category.php?do=Edit&c_id=<?php echo $child_cat_id; ?>" data-toggle="tooltip" title="Edit">
-            <i class="icon-edit">
-            </i>
-           </a>
-           <a href="" data-toggle="modal" data-target="#deleteSubCategory<?php echo $child_cat_id; ?>" title="Delete">
-            <i class="icon-trash" style="color:red;">
-            </i>
-           </a>
-           <div class="modal fade" id="deleteSubCategory<?php echo $child_cat_id; ?>" tabindex="-1"
-            aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-             <div class="modal-content">
-              <div class="modal-header">
-               <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete
-                <mark>
-                 <?php echo $cat_name; ?>
-                </mark> ?
-               </h5>
-               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;
-                </span>
-               </button>
-              </div>
-              <div class="modal-body">
-               <form action="category.php?do=Delete&sub_id=<?php echo $child_cat_id; ?>" method="POST">
-                <input name="deleteCategory" type="submit" class="btn btn-danger" value="Confirm">
-                <a type="button" class="btn btn-success" data-dismiss="modal">Cancel
-                </a>
-               </form>
-              </div>
-             </div>
-            </div>
-           </div>
-          </td>
          </tr>
+
          <?php
-        }
-    } ?>
+    }
+       ?>
         </tbody>
        </table>
       </div>
      </div>
-     <!--Book Category-->
-     <!-- ADD CATEGORY PHP CODE -->
+     <!--Manage All Books-->
+     <!-- ADD BOOK PHP CODE -->
      <?php
-}
+     }
 else if ($do == "Add")
 { ?>
      <div class="module">
       <div class="module-head">
-       <h3>Add New Book Category
+       <h3>Add New Book List
        </h3>
       </div>
       <div class="module-body">
@@ -211,64 +148,120 @@ else if ($do == "Add")
 <strong>Well done!</strong> Now you are listening me :)
 </div> -->
        <br />
-       <form class="form-horizontal row-fluid" method="POST" action="category.php?do=Insert">
-        <!-- Book Category Name -->
+       <form class="form-horizontal row-fluid" method="POST" action="book.php?do=Insert" enctype="multipart/form-data">
+        <!-- ISBN -->
         <div class="control-group">
-         <label for="cat_name" class="control-label" for="basicinput">Category Name
+         <label for="ISBN" class="control-label" for="basicinput">ISBN
          </label>
          <div class="controls">
-          <input type="text" name="cat_name" id="cat_name" placeholder="Enter book category name" class="span8">
+          <input type="text" name="ISBN" id="book_title" placeholder="Enter book ISBN" class="span8">
          </div>
         </div>
-        <!-- Category Decription -->
+
+        <!-- Book Title -->
         <div class="control-group">
-         <label for="cat_desc" class="control-label" for="basicinput">Category Description
+         <label for="book_title" class="control-label" for="basicinput">Book Title
          </label>
          <div class="controls">
-          <textarea id="cat_desc" name="cat_desc" class="span8" rows="1">
-                    </textarea>
+          <input type="text" name="book_title" id="book_title" placeholder="Enter book title" class="span8">
          </div>
         </div>
-        <!-- Parent Category -->
+
+        <!-- Book Category -->
         <div class="control-group">
-         <label class="control-label" for="basicinput">Parent Category
+         <label for="category_id" class="control-label" for="basicinput">Book Category
          </label>
          <div class="controls">
-          <select tabindex="1" data-placeholder="Select here.." class="span8" name="parent_id">
-           <option value="0">Select here..
+          <select tabindex="1" data-placeholder="Select here.." class="span8" name="category_id">
+           <option value="0">Select book category
            </option>
            <?php
     $query = "SELECT * FROM book_cat WHERE parent_id=0 order by cat_name ASC";
     $readParent = mysqli_query($dbc, $query);
     while ($row = mysqli_fetch_assoc($readParent))
     {
-        $parent_cat_id = $row['cat_id'];
-        $parent_cat_name = $row['cat_name'];
-?>
-           <option value="<?php echo $parent_cat_id; ?>">
-            <?php echo $parent_cat_name; ?>
+               $cat_id =$row['cat_id'];
+               $cat_name=$row['cat_name'];
+               $parent_id=$row['parent_id']; ?>
+           ?>
+           <option value="<?php echo $cat_id; ?>">
+            <?php echo $cat_name; ?>
            </option>
-           <?php
-    }
-?>
+           <?php 
+             $query2="SELECT * FROM book_cat where parent_id='$cat_id' order by cat_name ASC";
+             $child_cat=mysqli_query($dbc, $query2);
+             while ($row=mysqli_fetch_assoc($child_cat)) {
+                 $cat_id=$row['cat_id'];
+                 $cat_name=$row['cat_name'];
+              ?>
+           <option value="<?php echo $cat_id; ?>">--<?php echo $cat_name; ?></option>
+           <?php 
+             } 
+            ?>
+           <?php  
+             }
+            ?>
           </select>
          </div>
         </div>
-        <!-- Status -->
+
+
+        <!-- Book Desciption -->
         <div class="control-group">
-         <label class="control-label" for="basicinput">Status
+         <label for="book_desc" class="control-label" for="basicinput">Book Description
          </label>
          <div class="controls">
-          <select tabindex="1" data-placeholder="Select here.." class="span8" name="status">
-           <option value="0">Select here status
-           </option>
-           <option value="1">Active
-           </option>
-           <option value="0">Inactive
-           </option>
-          </select>
+          <textarea id="book_desc" name="book_desc" class="span8" rows="1">
+                    </textarea>
          </div>
         </div>
+
+        <!--Author -->
+        <div class="control-group">
+         <label for="author" class="control-label" for="basicinput">Author
+         </label>
+         <div class="controls">
+          <input type="text" name="author" id="author" placeholder="Enter the book authors name" class="span8">
+         </div>
+        </div>
+
+        <!--Publisher -->
+        <div class="control-group">
+         <label for="publisher" class="control-label" for="basicinput">Publisher
+         </label>
+         <div class="controls">
+          <input type="text" name="publisher" id="publisher" placeholder="Enter the publishers name" class="span8">
+         </div>
+        </div>
+
+        <!--Book Image -->
+        <div class="control-group">
+         <label for="image" class="control-label" for="basicinput">Book Image
+         </label>
+         <div class="controls">
+          <input type="file" name="image" id="image" class="span8">
+         </div>
+        </div>
+
+        <!--Date Published -->
+        <div class="control-group">
+         <label for="datereceived" class="control-label" for="basicinput">Date Published
+         </label>
+         <div class="controls">
+          <input type="text" id="datereceived" name="datereceived" class="span8">
+         </div>
+        </div>
+
+        <!--Quantity in Hand -->
+        <div class="control-group">
+         <label for="quantity" class="control-label" for="basicinput">Quantity
+         </label>
+         <div class="controls">
+          <input type="text" name="quantity" id="quantity" placeholder="Enter quantity" class="span8">
+         </div>
+        </div>
+
+
         <div class="control-group">
          <div class="controls pull-right">
           <input type="submit" name="add" class=" btn btn-success" value="Add Category">
@@ -286,16 +279,32 @@ else if ($do == "Insert")
     // PHP code to insert data into the database
     if (isset($_POST['add']))
     {
-        $cat_name = mysqli_real_escape_string($dbc,$_POST['cat_name']);
-        $cat_desc = mysqli_real_escape_string($dbc,$_POST['cat_desc']);
-        $parent_id = $_POST['parent_id'];
-        $status = $_POST['status'];
+        $ISBN        = $_POST['ISBN'];
+        $book_title  = $_POST['book_title'];
+        $category_id = $_POST['category_id'];
+        $book_desc   = $_POST['book_desc'];
+        $author	     = $_POST['author'];
+        $publisher   = $_POST['publisher'];
+        $datereceived=$_POST['datereceived'];
+        $pub_date    =date('Y-m-d', strtotime($datereceived));
+        $quantity    =$_POST['quantity'];
+       // Get the Image File and Name
+          $image        =$_FILES['image']['name'];
+          // Get the Image File and Temporary Folder Name
+          $image_tmp    =$_FILES['image']['tmp_name'];
+          $randomNumber=rand(0,9999999);
+            // Change Image Name
+            $imageFileName=$randomNumber.$image;
+            // Move uploaded file from temporary folder to destination Folder
+            move_uploaded_file($image_tmp, "../assets/img/book/".$imageFileName);
+
+
         // Insert users data into the database
-        $query = "INSERT INTO book_cat(cat_name,cat_desc, parent_id, status) VALUES('$cat_name','$cat_desc', '$parent_id', '$status')";
-        $saveCategory = mysqli_query($dbc, $query);
-        if ($saveCategory)
+        $query = "INSERT INTO book_info(ISBN,book_title,category_id,book_desc,author,publisher,image,pub_date,quantity,available) VALUES('$ISBN','$book_title','$category_id', '$book_desc','$author','$publisher','$imageFileName','$pub_date','$quantity','$quantity')";
+        $saveBook = mysqli_query($dbc, $query);
+        if ($saveBook)
         {
-            header("Location:category.php?do=Manage");
+            header("Location:book.php?do=Manage");
         }
         else
         {
@@ -338,7 +347,7 @@ else if ($do == "Edit")
 <strong>Well done!</strong> Now you are listening me :)
 </div> -->
        <br />
-       <form action="category.php?do=Update" method="POST" class="form-horizontal row-fluid">
+       <form class="form-horizontal row-fluid" method="POST" action="category.php?do=Update">
         <!-- Book Category Name -->
         <div class="control-group">
          <label for="cat_name" class="control-label" for="basicinput">Category Name
@@ -362,7 +371,7 @@ else if ($do == "Edit")
          <label class="control-label" for="basicinput">Parent Category
          </label>
          <div class="controls">
-          <select tabindex="1" data-placeholder="Select here.." class="span8" name="category_id">
+          <select tabindex="1" data-placeholder="Select here.." class="span8" name="parent_id">
            <option value="0">No Category selected. Select one
            </option>
            <?php
@@ -398,7 +407,7 @@ else if ($do == "Edit")
             {
                 echo 'selected';
             } ?>>Active</option>
-           <option value="0" <?php if ($status == 0)
+           <option value="2" <?php if ($status == 2)
             {
                 echo 'selected';
             } ?>>Inactive</option>
@@ -407,7 +416,7 @@ else if ($do == "Edit")
         </div>
         <div class="control-group">
          <div class="controls pull-right">
-          <input type="hidden" name="updateCatID" value="<?php echo $cat_id;?>">
+          <input type="hidden" name="updateCatID" value="<?php echo $cat_id; ?>">
           <input type="submit" name="updateCategory" class=" btn btn-success" value="Update">
           <a href="category.php?do=Manage" name="back" class="btn btn-warning">Back
           </a>
@@ -420,18 +429,18 @@ else if ($do == "Edit")
         }
     }
     // Update Book Category Code Starts Here
-    elseif ($do =="Update")
+    elseif ($do == "Update")
     {
         if (isset($_POST['updateCategory']))
         {
             $updateCatID = $_POST['updateCatID'];
             $category_name = mysqli_real_escape_string($dbc, $_POST['cat_name']);
             $category_desc = mysqli_real_escape_string($dbc, $_POST['cat_desc']);
-            $cat_parent = $_POST['category_id'];
+            $cat_parent = $_POST['parent_id'];
             $cat_status = $_POST['status'];
-            $query3 = "UPDATE book_cat SET cat_name='$category_name',cat_desc='$category_desc',parent_id='$cat_parent',status='$cat_status' WHERE cat_id='$updateCatID'";
-            $updateCat = mysqli_query($dbc, $query3);
-            if($updateCat)
+            $query = "UPDATE book_cat SET cat_name='$category_name', cat_desc='$category_desc', parent_id='$cat_parent', status='$cat_status' WHERE cat_id='$updateCatID'";
+            $updateCat = mysqli_query($dbc, $query);
+            if ($updateCat)
             {
                 header("Location:category.php?do=Manage");
             }
