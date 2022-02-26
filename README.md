@@ -31,7 +31,7 @@ Book Rental System is a web application that is used to help reserve and rent bo
 3. Bootstrap Framework - For front-end development
 4. MySQL - For database
 
-## :tool: Installation
+## :setup: Installation
 
 - Download and Install Xampp server. Link: https://www.apachefriends.org/download.html
 - In phpMyAdmin select import and choose library.sql
