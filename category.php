@@ -28,7 +28,8 @@ if (isset($_GET['category']))
    <div class="col-md-12">
     <div class="alert alert-info"> No books found in this category: <strong><?php echo $cat_name; ?></strong>
     </div>
-    <?php
+   </div>
+   <?php
     }
     else
     {
@@ -44,50 +45,50 @@ if (isset($_GET['category']))
             $image = $row['image'];
             $pub_date = $row['pub_date'];
             $quantity = $row['quantity']; ?>
-    <div class="col-md-12">
-     <h1>Books in category: <strong><?php echo $cat_name; ?></strong> </h1>
+   <div class="col-md-12">
+    <h1>Books in category: <strong><?php echo $cat_name; ?></strong> </h1>
 
-    </div>
    </div>
-   <div class="row">
+  </div>
+  <div class="row">
 
-    <div class="col-md-3">
+   <div class="col-md-3">
 
 
-     <div class="card  h-100">
-      <?php if (!empty($image))
+    <div class="card  h-100">
+     <?php if (!empty($image))
             { ?>
 
-      <img class="card-img-top img-fluid" src="assets/img/book/<?php echo $image; ?>" alt="Card image cap">
+     <img class="card-img-top img-fluid" src="assets/img/book/<?php echo $image; ?>" alt="Card image cap">
 
-      <?php
+     <?php
             }
             else
             {
 ?>
-      <img class="card-img-top img-fluid" src="assets/home/product-grey-1.jpg" alt="Card image cap">
-      <?php
+     <img class="card-img-top img-fluid" src="assets/home/product-grey-1.jpg" alt="Card image cap">
+     <?php
             } ?>
 
-      <div class="card-body">
-       <div class="card-title">
-        <h5> <?php echo $book_title ?> </h5>
-        <p class="card-text"><b>Author:</b> <?php echo $author; ?></p>
-       </div>
-       <div class="link">
-        <a href="bookdetails.php?book=<?php echo $book_id; ?>">Read More+</a>
-       </div>
+     <div class="card-body">
+      <div class="card-title">
+       <h5> <?php echo $book_title ?> </h5>
+       <p class="card-text"><b>Author:</b> <?php echo $author; ?></p>
+      </div>
+      <div class="link">
+       <a href="bookdetails.php?book=<?php echo $book_id; ?>">Read More+</a>
       </div>
      </div>
     </div>
-    <?php
+   </div>
+   <?php
         }
     }
 }
 ?>
-   </div>
   </div>
  </div>
+</div>
 </div>
 <hr style="margin-top: 40px; ">
 

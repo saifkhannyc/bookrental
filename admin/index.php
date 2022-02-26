@@ -34,7 +34,7 @@
 
       } else if ($_SESSION['userole'] !=2) { 
 
-        $loginerror[]="You are an admin";
+        $loginerror[]="You are not an admin";
 
       } 
       

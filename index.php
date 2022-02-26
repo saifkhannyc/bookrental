@@ -68,7 +68,7 @@ include 'inc/searchform.php';
 </div>
 <!-- END OF MOST RECOMMENDED SECTION -->
 <!-- START OF MOST RECOMMENDED SECTION-2 -->
-<div class="recommended  section_2">
+<!-- <div class="recommended  section_2">
  <h3 class="text-center"> Most Popular books </h3>
  <div class="container">
   <div class="row">
@@ -164,7 +164,7 @@ include 'inc/searchform.php';
    </div>
   </div>
  </div>
-</div>
+</div> -->
 <!-- END OF MOST RECOMMENDED SECTION-2 -->
 
 <?php
